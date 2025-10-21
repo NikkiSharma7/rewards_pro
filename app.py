@@ -62,10 +62,7 @@ st.markdown(
      <h1 style='font-family: "Roboto", sans-serif; color: #FFFFFF; font-size:26px'>
         💳 Welcome to Citibank Rewards and Loyalty Chatbot
     </h1>
-     .label{
-     font-family: "Roboto", sans-serif; 
-     color: #FFFFFF; 
-     font-size:26px}
+     
     .stApp {
         
          background-color: #004685;
@@ -1574,6 +1571,7 @@ if sugs:
     cols = st.columns(len(sugs))
     for i, s in enumerate(sugs):
         cols[i].button(s, key=f"suggest_{i}", on_click=_queue_user_text, args=(s,))
+
 
 
 
