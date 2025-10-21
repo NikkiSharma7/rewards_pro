@@ -124,7 +124,7 @@ def add_assistant_chart(fig, caption: Optional[str] = None) -> None:
 # --------------------------------------------------------------------------------------------
 # 2) Data Loading — Catalog-style (no uploader; always from data/ or TXN_DATA_PATH)
 # --------------------------------------------------------------------------------------------
-st.markdown("### Data")
+
 import csv  # used for delimiter sniffing (kept for compatibility)
 
 # Canonical schema we want everywhere
@@ -1574,5 +1574,6 @@ if sugs:
     cols = st.columns(len(sugs))
     for i, s in enumerate(sugs):
         cols[i].button(s, key=f"suggest_{i}", on_click=_queue_user_text, args=(s,))
+
 
 
