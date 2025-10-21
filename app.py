@@ -74,8 +74,12 @@ st.markdown(
              background-attachment: fixed;
              background-size: cover
          }
-    </style>
-    
+   
+    .st-info {
+        
+         background-color: #fffff;
+        }
+         </style>
     """,
     unsafe_allow_html=True
 )
@@ -1575,4 +1579,5 @@ if sugs:
     cols = st.columns(len(sugs))
     for i, s in enumerate(sugs):
         cols[i].button(s, key=f"suggest_{i}", on_click=_queue_user_text, args=(s,))
+
 
