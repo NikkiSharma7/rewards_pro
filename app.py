@@ -54,7 +54,32 @@ TODAY = date.today()
 CURRENT_YEAR = TODAY.year
 DEBUG_ROUTING = False
 st.set_page_config(page_title="AI Assistant", page_icon="💳")
-st.title("💳 AI Spending Insights Assistant")
+st.markdown(
+    """
+    <h1 style='font-family: "Roboto", sans-serif; color: #FFFFFF; font-size:26px'>
+        💳 Welcome to Citibank Rewards and Loyalty Chatbot
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <style>
+    .stApp {
+        
+         background-color: #004685;
+        }
+    .stApp11 {
+             background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSQCvCEqMnhrmjNsxT52Murg5ggT-52I7zOgo-zTqL5_pbCNZkEE83wKE-ZCPIgAC0zk8&usqp=CAU");
+             background-attachment: fixed;
+             background-size: cover
+         }
+    </style>
+    
+    """,
+    unsafe_allow_html=True
+)
+
 
 # --------------------------------------------------------------------------------------------
 # 1) Session State (light chat memory)
@@ -100,7 +125,7 @@ def add_assistant_chart(fig, caption: Optional[str] = None) -> None:
 # --------------------------------------------------------------------------------------------
 # 2) Data Loading — Catalog-style (no uploader; always from data/ or TXN_DATA_PATH)
 # --------------------------------------------------------------------------------------------
-st.markdown("### Data")
+ 
 import csv  # used for delimiter sniffing (kept for compatibility)
 
 # Canonical schema we want everywhere
@@ -245,8 +270,8 @@ df: Optional[pd.DataFrame] = None
 try:
     df = load_transactions_catalog()
     st.info(f"Using local transactions: `{os.path.basename(_discover_transactions_path() or '')}`")
-    with st.expander("Preview data", expanded=False):
-        st.dataframe(df.head(25), use_container_width=True)
+    #with st.expander("Preview data", expanded=False):
+        #st.dataframe(df.head(25), use_container_width=True)
 except Exception as e:
     st.error(f"Could not load transactions: {e}")
     df = None
@@ -1550,3 +1575,4 @@ if sugs:
     cols = st.columns(len(sugs))
     for i, s in enumerate(sugs):
         cols[i].button(s, key=f"suggest_{i}", on_click=_queue_user_text, args=(s,))
+
