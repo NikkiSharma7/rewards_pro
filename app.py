@@ -268,9 +268,9 @@ def load_transactions_catalog(path: Optional[str] = None) -> pd.DataFrame:
 df: Optional[pd.DataFrame] = None
 try:
     df = load_transactions_catalog()
-    st.info(f"Using local transactions: `{os.path.basename(_discover_transactions_path() or '')}`")
-    with st.expander("Preview data", expanded=False):
-        st.dataframe(df.head(25), use_container_width=True)
+    #st.info(f"Using local transactions: `{os.path.basename(_discover_transactions_path() or '')}`")
+    #with st.expander("Preview data", expanded=False):
+        #st.dataframe(df.head(25), use_container_width=True)
 except Exception as e:
     st.error(f"Could not load transactions: {e}")
     df = None
@@ -1574,4 +1574,5 @@ if sugs:
     cols = st.columns(len(sugs))
     for i, s in enumerate(sugs):
         cols[i].button(s, key=f"suggest_{i}", on_click=_queue_user_text, args=(s,))
+
 
