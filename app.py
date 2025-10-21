@@ -54,7 +54,7 @@ TODAY = date.today()
 CURRENT_YEAR = TODAY.year
 DEBUG_ROUTING = False
 st.set_page_config(page_title="AI Assistant", page_icon="💳")
-
+st.title("💳 AI Spending Insights Assistant")
 
 st.markdown(
     """
@@ -1574,6 +1574,7 @@ if sugs:
     cols = st.columns(len(sugs))
     for i, s in enumerate(sugs):
         cols[i].button(s, key=f"suggest_{i}", on_click=_queue_user_text, args=(s,))
+
 
 
 
