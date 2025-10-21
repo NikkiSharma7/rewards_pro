@@ -55,12 +55,7 @@ CURRENT_YEAR = TODAY.year
 DEBUG_ROUTING = False
 st.set_page_config(page_title="AI Assistant", page_icon="💳")
 
-st.markdown(
-    """
-   
-    """,
-    unsafe_allow_html=True
-)
+
 st.markdown(
     """
     <style>
